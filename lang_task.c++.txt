@@ -1,0 +1,53 @@
+#include <lang_taskk.h> 
+#include <cstdlib> 
+#include <ctime> 
+#include <iostream> 
+#include <iomanip> 
+#include <string> 
+#include <fstream> 
+using namespace std; 
+
+int main() 
+{ 
+ofstream fout("file.txt",ios_base::out); 
+fout.open("file.txt",ios_base::out); 
+int col=0,row=0; 
+srand(time(NULL)); 
+cout « "Êîëè÷åñòâî êîëîíîê íå áîëüøå 20:"; 
+cin » col; 
+cout « "Êîëè÷åñòâî ñòğîê íå áîëüøå 20:"; 
+cin » row; 
+int arr[col][row]; 
+if ((col<=20)&&(row<=20)) 
+{ 
+for(int z=0;z<col+2;z++) 
+{ 
+fout«setw(2)«"*"; 
+cout«setw(2)«"*"; 
+} 
+for (int i=0;i<col;i++) 
+{ 
+fout«endl; 
+cout«endl; 
+for(int j=0;j<row;j++) 
+{ 
+fout«"|"; 
+cout«"|"; 
+arr[i][j]=rand()%1000; 
+cout«setw(3)«arr[i][j]; 
+fout«setw(3)«arr[i][j]; 
+} 
+fout«"|"; 
+fout«endl; 
+cout«"|"; 
+cout«endl; 
+} 
+for(int z=0;z<col+2;z++) 
+{ 
+fout«setw(2)«"*"; 
+cout«setw(2)«"*"; 
+} 
+} 
+fout.close(); 
+return 0; 
+}
